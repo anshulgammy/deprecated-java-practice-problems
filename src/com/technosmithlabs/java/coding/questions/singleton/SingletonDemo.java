@@ -2,14 +2,24 @@ package com.technosmithlabs.java.coding.questions.singleton;
 
 public class SingletonDemo {
 
-    private static SingletonDemo instance = null;
-
-    private SingletonDemo() {
+    public static void main(String[] args) {
+        // we cannot create object using new, as SingletonClass is having private constructor.
+        System.out.println(SingletonClass.getInstance());
+        // we get the same instance, same hashcode, every time we do a getInstance().
+        System.out.println(SingletonClass.getInstance());
     }
 
-    public static SingletonDemo getInstance() {
-        if(instance == null) {
-            instance = new SingletonDemo();
+}
+
+class SingletonClass {
+    private static SingletonClass instance = null;
+
+    private SingletonClass() {
+    }
+
+    public static SingletonClass getInstance() {
+        if (instance == null) {
+            instance = new SingletonClass();
         }
         return instance;
     }
